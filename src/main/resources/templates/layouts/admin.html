@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/styles.css}" />
+
+<title layout:title="$TITLE"></title>
+</head>
+<body>
+	<div th:insert="header"></div>
+	<div layout:fragment="content"></div>
+	<div class="pre-footer" style="min-height: 5em;"></div>
+	<div th:replace="fragments/footer"></div>
+
+	<script th:src="@{/js/jquery-1.11.1.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/chart.min.js}"></script>
+	<script th:src="@{/js/chart-data.js}"></script>
+	<script th:src="@{/js/easypiechart.js}"></script>
+	<script th:src="@{/js/easypiechart-data.js}"></script>
+	<script th:src="@{/js/bootstrap-datepicker.js}"></script>
+	<script th:src="@{/js/custom.js}"></script>
+</body>
+</html>
