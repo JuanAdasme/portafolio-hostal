@@ -7,17 +7,18 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-<link rel="stylesheet" data-th-href="@{/css/styles.css}" 
-media="all">
+<link rel="stylesheet" data-th-href="@{/css/styles.css}" media="all">
 
 <title layout:title="$TITLE"></title>
 </head>
 <body>
-	<div th:insert="fragments/header"></div>
-	<div th:insert="fragments/sidebar"></div>
-	<div layout:fragment="content"></div>
+	<div th:insert="fragments/admin/header"></div>
+	<div th:insert="fragments/admin/sidebar"></div>
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+		<div layout:fragment="content"></div>
+	</div>
 	<div class="pre-footer" style="min-height: 5em;"></div>
-	<div th:replace="fragments/footer"></div>
+	<div th:replace="fragments/admin/footer"></div>
 
 	<script th:src="@{/js/jquery-1.11.1.min.js}"></script>
 	<script th:src="@{/js/bootstrap.min.js}"></script>

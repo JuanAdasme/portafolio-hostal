@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layouts/default.html}">
+	layout:decorate="~{layouts/admin.html}">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,23 @@
 </head>
 <body>
 	<th:block layout:fragment="content">
-	<h2>Index</h2>
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Administrador</li>
+			</ol>
+		</div><!--/.row-->
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">¡Bienvenido, Usuario!</h1>
+				<p></p>
+			</div>
+		</div><!--/.row-->
+		
+		
 	</th:block>
 </body>
 </html>
