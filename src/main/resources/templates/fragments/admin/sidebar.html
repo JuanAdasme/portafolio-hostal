@@ -17,14 +17,29 @@
 		</form>
 		<ul class="nav menu">
 			<li><a th:href="@{/admin/usuarios/list}"><em class="fa fa-dashboard">&nbsp;</em> Usuarios</a></li>
+			<li class="parent "><a data-toggle="collapse" href="#listar-empleados">
+				<em class="fa fa-navicon">&nbsp;</em> Empleados <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+				</a>
+				<ul class="children collapse" id="listar-empleados">
+					<li><a class="" th:href="@{/admin/empleados/list}">
+						<span class="fa fa-arrow-right">&nbsp;</span> Lista
+					</a></li>
+					<li><a class="" href="#">
+						<span class="fa fa-arrow-right">&nbsp;</span> Agregar
+					</a></li>
+					<li><a class="" href="#">
+						<span class="fa fa-arrow-right">&nbsp;</span> Modificar
+					</a></li>
+				</ul>
+			</li>
 			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Habitaciones</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Empresas</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> Orden de Compra</a></li>
 			<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-				<em class="fa fa-navicon">&nbsp;</em> Usuarios <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+				<em class="fa fa-navicon">&nbsp;</em> Empelados <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="#">
+					<li><a class="" th:href="@{/admin/usuarios/list}">
 						<span class="fa fa-arrow-right">&nbsp;</span> Lista
 					</a></li>
 					<li><a class="" href="#">
