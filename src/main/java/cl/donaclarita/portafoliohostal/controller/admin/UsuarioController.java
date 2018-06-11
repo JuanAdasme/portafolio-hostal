@@ -13,12 +13,12 @@ import cl.donaclarita.portafoliohostal.service.UsuarioService;
 @Controller
 public class UsuarioController {
 	
-	private final static Logger LOGGER = Logger.getLogger(EmpleadoController.class.getName());
+	private final static Logger LOGGER = Logger.getLogger(UsuarioController.class.getName());
 	UsuarioService restClient = new UsuarioService();
 	
-	@GetMapping("/admin/empleados/list")
+	@GetMapping("/admin/usuarios/list")
 	public void listarTodos(Model model) {
-		List<Usuario> usuarios = restClient.findAllEmpleados();
+		List<Usuario> usuarios = restClient.findAllUsuarios();
 		model.addAttribute("usuarios", usuarios);
 	}
 }

@@ -24,10 +24,10 @@
 					<li><a class="" th:href="@{/admin/empleados/list}">
 						<span class="fa fa-arrow-right">&nbsp;</span> Lista
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" th:href="@{/admin/empleados/add}">
 						<span class="fa fa-arrow-right">&nbsp;</span> Agregar
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" th:href="@{/admin/empleados/edit?id=18123634}">
 						<span class="fa fa-arrow-right">&nbsp;</span> Modificar
 					</a></li>
 				</ul>
@@ -35,21 +35,6 @@
 			<li><a href="widgets.html"><em class="fa fa-calendar">&nbsp;</em> Habitaciones</a></li>
 			<li><a href="charts.html"><em class="fa fa-bar-chart">&nbsp;</em> Empresas</a></li>
 			<li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> Orden de Compra</a></li>
-			<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-				<em class="fa fa-navicon">&nbsp;</em> Empelados <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" th:href="@{/admin/usuarios/list}">
-						<span class="fa fa-arrow-right">&nbsp;</span> Lista
-					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Agregar
-					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Modificar
-					</a></li>
-				</ul>
-			</li>
 			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->
