@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin.html}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Hostal Doña Clarita</title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"> <em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Proveedores</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="container">
+			<div class="row" th:if="${success}">
+				<p th:text="${success}" class="alert-success"></p>>
+			</div>
+			<div class="row" th:if="${error}">
+				<p th:text="${error}" class="alert-danger"></p>>
+			</div>
+			<div class="row">
+				<div>
+					<h4 style="width: 70%; float: left;">LISTA DE PROVEEDORES</h4>
+					<button class="btn-success" style="margin-top: 8px"
+						th:onclick="'javascript:addRedirect();'">Agregar</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10">
+					<div class="table-responsive">
+						<table id="mytable" class="table table-bordred table-striped">
+							<thead>
+								<th>NOMNRE</th>
+								<th>TELÉFONO</th>
+								<th>EMAIL</th>
+								<th>RUBRO ID</th>
+							</thead>
+							<tbody>
+								<tr th:each="pro : ${proveedores}">
+									<td th:text="${pro.proveedoR_NOMBRE}"></td>
+									<td th:text="${pro.proveedoR_TELEFONO}"></td>
+									<td th:text="${pro.proveedoR_EMAIL}"></td>
+									<td th:text="${pro.rubrO_ID}"></td>
+									<td><p data-placement="top" data-toggle="tooltip"
+											title="Edit">
+											<button class="btn btn-primary btn-xs" data-title="Edit"
+												data-toggle="modal" data-target=""
+												th:onclick="'javascript:editRedirect(' + ${pro.proveedoR_NOMBRE} + ');'">
+												<span class="glyphicon glyphicon-pencil"></span>
+											</button>
+										</p></td>
+									<td><p data-placement="top" data-toggle="tooltip"
+											title="Delete">
+										<form method="post" th:action="@{/admin/proveedores/delete}"
+											id="delete"></form>
+										<button class="btn btn-danger btn-xs" data-title="Delete"
+											data-toggle="modal" data-target=""
+											th:onclick="'javascript:redirectDelete(' + ${pro.proveedoR_NOMBRE} + ');'">
+											<span class="glyphicon glyphicon-trash"></span>
+										</button>
+										</p></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="clearfix"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script>
+			function addRedirect() {
+				location.href = '/admin/proveedores/add';
+			}
+			function editRedirect(id) {
+				location.href = '/admin/proveedores/edit?id=' + id;
+			}
+		</script>
+	</th:block>
+</body>
+</html>

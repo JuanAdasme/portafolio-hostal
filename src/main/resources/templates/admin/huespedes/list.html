@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin.html}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Hostal Doña Clarita</title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"> <em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Hospedados</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="container">
+			<div class="row" th:if="${success}">
+				<p th:text="${success}" class="alert-success"></p>>
+			</div>
+			<div class="row" th:if="${error}">
+				<p th:text="${error}" class="alert-danger"></p>>
+			</div>
+			<div class="row">
+				<div>
+					<h4 style="width: 70%; float: left;">LISTA DE HOSPEDADOS</h4>
+					<button class="btn-success" style="margin-top: 8px"
+						th:onclick="'javascript:addRedirect();'">Agregar</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10">
+					<div class="table-responsive">
+						<table id="mytable" class="table table-bordred table-striped">
+							<thead>
+								<th>RUT</th>
+								<th>NOMBRE</th>
+								<th>EMAIL</th>
+								<th>EMPRESA</th>
+							</thead>
+							<tbody>
+								<tr th:each="hue : ${huespedes}">
+									<td th:text="${hue.huespeD_RUT + ' ' + hue.huespeD_RUT_DV}"></td>
+									<td th:text="${hue.huespeD_NOMBRE}"></td>
+									<td th:text="${hue.huespeD_EMAIL}"></td>
+									<td th:text="${hue.empresA_RUT}"></td>
+									<td><p data-placement="top" data-toggle="tooltip"
+											title="Edit">
+											<button class="btn btn-primary btn-xs" data-title="Edit"
+												data-toggle="modal" data-target=""
+												th:onclick="'javascript:editRedirect(' + ${hue.huespeD_RUT} + ');'">
+												<span class="glyphicon glyphicon-pencil"></span>
+											</button>
+										</p></td>
+									<td><p data-placement="top" data-toggle="tooltip"
+											title="Delete">
+										<form method="post" th:action="@{/admin/huespedes/delete}"
+											id="delete"></form>
+										<button class="btn btn-danger btn-xs" data-title="Delete"
+											data-toggle="modal" data-target=""
+											th:onclick="'javascript:redirectDelete(' + ${hue.huespeD_RUT} + ');'">
+											<span class="glyphicon glyphicon-trash"></span>
+										</button>
+										</p></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="clearfix"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script>
+			function addRedirect() {
+				location.href = '/admin/huespedes/add';
+			}
+			function editRedirect(id) {
+				location.href = '/admin/huespedes/edit?id=' + id;
+			}
+		</script>
+	</th:block>
+</body>
+</html>

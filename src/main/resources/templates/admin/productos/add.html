@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin.html}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Hostal Doña Clarita</title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"> <em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Productos</li>
+			</ol>
+		</div>
+		<!--/.row-->
+
+		<div class="row">
+			<h4>Agregar Producto</h4>
+		</div>
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel-heading">Forms</div>
+				<div class="panel-body">
+					<div class="col-md-6">
+						<form role="form" method="POST" th:href="@{/admin/productos/add}">
+							<div class="form-group">
+								<label>ID: </label> <input type="number" name="id" class="form-control"
+									placeholder="100" max="99999999" required>
+							</div>
+							<div class="form-group">
+								<label>Código: </label> <input type="number" name="codigo" class="form-control"
+									placeholder="123456" max="99999999" required>
+							</div>
+							<div class="form-group">
+								<label>Nombre: </label> <input class="form-control" name="nombre"
+									placeholder="Nombre Producto" required>
+							</div>
+							<div class="form-group">
+								<label>Descripción: </label> <input class="form-control" name="descripcion"
+									placeholder="Descripción del producto" required>
+							</div>
+							<div class="form-group">
+								<label>Stock: </label> <input type="number" name="stock"
+									class="form-control" placeholder="50" required>
+							</div>
+							<button type="submit" class="btn btn-primary">Agregar</button>
+							<button type="reset" class="btn btn-default">Restablecer</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+</body>
+</html>
