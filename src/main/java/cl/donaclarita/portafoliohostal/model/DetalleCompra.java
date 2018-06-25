@@ -9,3 +9,4 @@ public class DetalleCompra {
 	private int habitacionId;
 	private int ordenCompraId;
 }
+

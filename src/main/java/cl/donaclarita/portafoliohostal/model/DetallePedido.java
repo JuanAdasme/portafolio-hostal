@@ -10,3 +10,4 @@ public class DetallePedido {
 	private int ordenPedidoId;
 	private int proveedorId;
 }
+
