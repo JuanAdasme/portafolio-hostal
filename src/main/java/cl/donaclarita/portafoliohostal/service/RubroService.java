@@ -80,13 +80,12 @@ public class RubroService {
 		return Rubro;
 	}
 	
-	public boolean edit(Rubro Rubro) {
+	public boolean edit(Rubro rubro) {
 		boolean result = false;
-		LOGGER.log(Level.INFO, "Rubro: " + Rubro.getRubro_RUT(), Rubro);
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			HttpEntity<Rubro> request = new HttpEntity<Rubro>(Rubro);
-			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "Rubroes/" + Rubro.getRubro_RUT(), HttpMethod.PUT,
+			HttpEntity<Rubro> request = new HttpEntity<Rubro>(rubro);
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "Rubroes/" + rubro.getRubrO_ID(), HttpMethod.PUT,
 					request, Boolean.class);
 
 			if (response != null && response.getStatusCode() == HttpStatus.OK) {
@@ -99,12 +98,12 @@ public class RubroService {
 		return result;
 	}
 	
-	public boolean delete(Long rut) {
+	public boolean delete(Long id) {
 
 		boolean result = false;
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "Rubroes/" + rut, HttpMethod.DELETE,
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "Rubroes/" + id, HttpMethod.DELETE,
 					null, Boolean.class);
 
 			if (response != null && response.getStatusCode() == HttpStatus.OK) {

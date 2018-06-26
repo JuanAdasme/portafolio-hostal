@@ -45,7 +45,7 @@
 											title="Edit">
 											<button class="btn btn-primary btn-xs" data-title="Edit"
 												data-toggle="modal" data-target=""
-												th:onclick="'javascript:redirectEdit(' + ${usu.usuariO_NOMBRE_USUARIO} + ');'">
+												th:onclick="'javascript:editRedirect(\'' + ${usu.usuariO_NOMBRE_USUARIO} + '\');'">
 												<span class="glyphicon glyphicon-pencil"></span>
 											</button>
 										</p></td>
@@ -55,7 +55,7 @@
 											id="delete"></form>
 										<button class="btn btn-danger btn-xs" data-title="Delete"
 											data-toggle="modal" data-target=""
-											th:onclick="'javascript:redirectDelete(' + ${usu.usuariO_NOMBRE_USUARIO} + ');'">
+											th:onclick="'javascript:redirectDelete('+ '\'' + ${usu.usuariO_NOMBRE_USUARIO} + '\'' + ');'">
 											<span class="glyphicon glyphicon-trash"></span>
 										</button>
 										</p></td>
@@ -70,7 +70,10 @@
 		</div>
 		<script>
 			function addRedirect() {
-				location.href = '/admin/usuarios/add'
+				location.href = '/admin/usuarios/add';
+			}
+			function editRedirect(id) {
+				location.href = '/admin/usuarios/edit?id=' + id;
 			}
 		</script>
 	</th:block>

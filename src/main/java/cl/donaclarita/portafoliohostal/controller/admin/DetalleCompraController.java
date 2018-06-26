@@ -30,7 +30,7 @@ public class DetalleCompraController {
 	}
 	
 	@PostMapping("/admin/detalleCompras/add")
-	public void agregar(int id, int huespedeRut, int habitacionId, int ordenCompraId) {
+	public void agregar(Long id, Long huespedeRut, Long habitacionId, Long ordenCompraId) {
 		DetalleCompra detalleCompra = new DetalleCompra(id, huespedeRut, habitacionId, ordenCompraId);
 		restClient.crearDetalleCompra(detalleCompra);
 	}
@@ -42,7 +42,7 @@ public class DetalleCompraController {
 	}
 	
 	@PostMapping("/admin/detalleCompras/edit")
-	public String editar(int id, int huespedeRut, int habitacionId, int ordenCompraId) {
+	public String editar(Long id, Long huespedeRut, Long habitacionId, Long ordenCompraId) {
 		DetalleCompra detalleCompra = new DetalleCompra(id, huespedeRut, habitacionId, ordenCompraId);
 		restClient.edit(detalleCompra);
 		return "/admin/detalleCompras/list";

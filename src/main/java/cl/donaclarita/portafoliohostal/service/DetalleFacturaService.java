@@ -80,13 +80,12 @@ public class DetalleFacturaService {
 		return DetalleFactura;
 	}
 	
-	public boolean edit(DetalleFactura DetalleFactura) {
+	public boolean edit(DetalleFactura detalleFactura) {
 		boolean result = false;
-		LOGGER.log(Level.INFO, "DetalleFactura: " + DetalleFactura.getDetalleFactura_RUT(), DetalleFactura);
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			HttpEntity<DetalleFactura> request = new HttpEntity<DetalleFactura>(DetalleFactura);
-			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "detalleFactura/" + DetalleFactura.getDetalleFactura_RUT(), HttpMethod.PUT,
+			HttpEntity<DetalleFactura> request = new HttpEntity<DetalleFactura>(detalleFactura);
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "detalleFactura/" + detalleFactura.getDetallE_FACTURA_ID(), HttpMethod.PUT,
 					request, Boolean.class);
 
 			if (response != null && response.getStatusCode() == HttpStatus.OK) {

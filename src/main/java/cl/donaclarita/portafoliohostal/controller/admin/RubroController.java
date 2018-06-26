@@ -18,49 +18,45 @@ public class RubroController {
 	private final static Logger LOGGER = Logger.getLogger(RubroController.class.getName());
 	RubroService restClient = new RubroService();
 	
-	@GetMapping("/admin/Rubros/list")
+	@GetMapping("/admin/rubros/list")
 	public void listarTodos(Model model) {
 		List<Rubro> rubros = restClient.findAllRubros();
 		model.addAttribute("rubros", rubros);	
 	}
 	
-	@GetMapping("/admin/Rubros/add")
+	@GetMapping("/admin/rubros/add")
 	public String agregar() {
 		return "/admin/Rubros/add";
 	}
 	
-	@PostMapping("/admin/Rubros/add")
-	public void agregar(int id, String nombre) {
+	@PostMapping("/admin/rubros/add")
+	public void agregar(Long id, String nombre) {
 		Rubro rubro = new Rubro(id, nombre);
 		restClient.crearRubro(rubro);
 	}
 	
-	@GetMapping("/admin/Rubros/edit")
+	@GetMapping("/admin/rubros/edit")
 	public void editar(Long id, Model model) {
 		Rubro rubro = restClient.getById(id);
 		model.addAttribute("rubro", rubro);
 	}
 	
-	@PostMapping("/admin/Rubros/edit")
-	public String editar(int id, String nombre) {
+	@PostMapping("/admin/rubros/edit")
+	public String editar(Long id, String nombre) {
 		Rubro rubro = new Rubro(id, nombre);
 		restClient.edit(rubro);
 		return "/admin/Rubros/list";
 	}
 	
-	@RequestMapping("/admin/Rubros/delete")
+	@RequestMapping("/admin/rubros/delete")
 	public void delete(Long rut, Model model) {
 		boolean es = restClient.delete(rut);
 		if(es) {
-			model.addAttribute("msg", "Usuario eliminado");
+			model.addAttribute("msg", "Rubro eliminado");
 		}
 		else {
-			model.addAttribute("msg", "Usuario NO eliminado");
+			model.addAttribute("msg", "Rubro NO eliminado");
 		}
 	}
 	
-	@GetMapping("/admin/Rubros/grafico")
-	public String chart() {
-		return "/admin/Rubros/grafico";
-	}
 }

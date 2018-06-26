@@ -30,7 +30,7 @@ public class HabitacionController {
 	}
 	
 	@PostMapping("/admin/Habitacions/add")
-	public void agregar(int numero, int disponible, int tipoHabitacionId) {
+	public void agregar(Long numero, Long disponible, Long tipoHabitacionId) {
 		Habitacion habitacion = new Habitacion(numero, disponible, tipoHabitacionId);
 		restClient.crearHabitacion(habitacion);
 	}
@@ -42,7 +42,7 @@ public class HabitacionController {
 	}
 	
 	@PostMapping("/admin/Habitacions/edit")
-	public String editar(int numero, int disponible, int tipoHabitacionId) {
+	public String editar(Long numero, Long disponible, Long tipoHabitacionId) {
 		Habitacion habitacion = new Habitacion(numero, disponible, tipoHabitacionId);
 		restClient.edit(habitacion);
 		return "/admin/Habitacions/list";

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin.html}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Hostal Doña Clarita</title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"> <em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Usuarios</li>
+			</ol>
+		</div>
+		<!--/.row-->
+
+		<div class="row">
+			<h2>Editar Usuario</h2>
+		</div>
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel-heading">Forms</div>
+				<div class="panel-body">
+					<div class="col-md-6">
+						<form role="form" method="POST" th:href="@{/admin/usuarios/edit}">
+							<div class="form-group">
+								<label>Nombre de usuario: </label> <input type="text"
+									name="username" class="form-control"
+									placeholder="Nombredeusuario" th:value="${usuario.usuariO_NOMBRE_USUARIO}" required readonly>
+							</div>
+							<!-- <div class="form-group">
+							<label>Rol:</label>
+								<select name="rol" >
+									<option value="" th:selected="${usuario.usuariO_NOMBRE_USUARIO}">--</option>
+									<option value="Administrador">Administrador</option>
+									<option value="Usuario">Usuario</option>
+									<option value="Cliente">Cliente</option>
+									<option value="Proveedor">Proveedor</option>
+								</select>
+							</div> -->
+							<div class="form-group">
+								<label>Nombre: </label> <input class="form-control"
+									name="nombre" placeholder="Nombre" th:value="${usuario.usuariO_NOMBRE}" required>
+							</div>
+							<div class="form-group">
+								<label>Apellido Paterno: </label> <input type="text" name="apellidoPaterno"
+									class="form-control" placeholder="Apellido" th:value="${usuario.usuariO_APELLIDO_P}" required>
+							</div>
+							<div class="form-group">
+								<label>Apellido Materno: </label> <input type="text" name="apellidoMaterno"
+									class="form-control" placeholder="Apellido" th:value="${usuario.usuariO_APELLIDO_M}" required>
+							</div>
+							<button type="submit" class="btn btn-primary">Guardar</button>
+							<button type="reset" class="btn btn-default">Restablecer</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+</body>
+</html>

@@ -30,7 +30,7 @@ public class DetallePedidoController {
 	}
 	
 	@PostMapping("/admin/DetallePedidos/add")
-	public void agregar(int id, int cantidad, int precio, int ordenPedidoId, int proveedorId) {
+	public void agregar(Long id, Long cantidad, Long precio, Long ordenPedidoId, Long proveedorId) {
 		DetallePedido detallePedido = new DetallePedido(id, cantidad, precio, ordenPedidoId, proveedorId);
 		restClient.crearDetallePedido(detallePedido);
 	}
@@ -42,7 +42,7 @@ public class DetallePedidoController {
 	}
 	
 	@PostMapping("/admin/DetallePedidos/edit")
-	public String editar(int id, int cantidad, int precio, int ordenPedidoId, int proveedorId) {
+	public String editar(Long id, Long cantidad, Long precio, Long ordenPedidoId, Long proveedorId) {
 		DetallePedido detallePedido = new DetallePedido(id, cantidad, precio, ordenPedidoId, proveedorId);
 		restClient.edit(detallePedido);
 		return "/admin/DetallePedidos/list";

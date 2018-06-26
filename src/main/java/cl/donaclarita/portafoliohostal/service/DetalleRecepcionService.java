@@ -80,13 +80,12 @@ public class DetalleRecepcionService {
 		return DetalleRecepcion;
 	}
 	
-	public boolean edit(DetalleRecepcion DetalleRecepcion) {
+	public boolean edit(DetalleRecepcion detalleRecepcion) {
 		boolean result = false;
-		LOGGER.log(Level.INFO, "DetalleRecepcion: " + DetalleRecepcion.getDetalleRecepcion_RUT(), DetalleRecepcion);
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			HttpEntity<DetalleRecepcion> request = new HttpEntity<DetalleRecepcion>(DetalleRecepcion);
-			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "DetalleRecepcion/" + DetalleRecepcion.getDetalleRecepcion_RUT(), HttpMethod.PUT,
+			HttpEntity<DetalleRecepcion> request = new HttpEntity<DetalleRecepcion>(detalleRecepcion);
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "DetalleRecepcion/" + detalleRecepcion.getDetallE_RECEPCION_ID(), HttpMethod.PUT,
 					request, Boolean.class);
 
 			if (response != null && response.getStatusCode() == HttpStatus.OK) {
@@ -99,12 +98,12 @@ public class DetalleRecepcionService {
 		return result;
 	}
 	
-	public boolean delete(Long rut) {
+	public boolean delete(Long id) {
 
 		boolean result = false;
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "DetalleRecepcion/" + rut, HttpMethod.DELETE,
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "DetalleRecepcion/" + id, HttpMethod.DELETE,
 					null, Boolean.class);
 
 			if (response != null && response.getStatusCode() == HttpStatus.OK) {

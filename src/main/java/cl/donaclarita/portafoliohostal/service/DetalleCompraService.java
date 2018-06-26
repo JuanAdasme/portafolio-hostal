@@ -30,7 +30,7 @@ public class DetalleCompraService {
 
 			if (response != null && response.getStatusCode() == HttpStatus.OK) {
 				LOGGER.log(Level.INFO, response.getBody()[0].toString());
-				DetalleCompras.addAll(Arrays.asList(response.getBody()));
+				detalleCompras.addAll(Arrays.asList(response.getBody()));
 			}
 			else {
 				LOGGER.log(Level.INFO, "Response null or Status not OK");
@@ -40,7 +40,7 @@ public class DetalleCompraService {
 			LOGGER.log(Level.WARNING, MSG_SERVICE_ERROR, e);
 		}
 		
-		return DetalleCompras;
+		return detalleCompras;
 	}
 	
 	public boolean crearDetalleCompra(DetalleCompra DetalleCompra) {
@@ -80,13 +80,12 @@ public class DetalleCompraService {
 		return DetalleCompra;
 	}
 	
-	public boolean edit(DetalleCompra DetalleCompra) {
+	public boolean edit(DetalleCompra detalleCompra) {
 		boolean result = false;
-		LOGGER.log(Level.INFO, "DetalleCompra: " + DetalleCompra.getDetalleCompra_RUT(), DetalleCompra);
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			HttpEntity<DetalleCompra> request = new HttpEntity<DetalleCompra>(DetalleCompra);
-			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "detalleCompra/" + DetalleCompra.getDetalleCompra_RUT(), HttpMethod.PUT,
+			HttpEntity<DetalleCompra> request = new HttpEntity<DetalleCompra>(detalleCompra);
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "detalleCompra/" + detalleCompra.getDetallE_COMPRA_ID(), HttpMethod.PUT,
 					request, Boolean.class);
 
 			if (response != null && response.getStatusCode() == HttpStatus.OK) {

@@ -31,7 +31,7 @@ public class FacturaController {
 	}
 	
 	@PostMapping("/admin/Facturas/add")
-	public void agregar(int id, int valorTotal, Date fecha, int empresaRut) {
+	public void agregar(Long id, Long valorTotal, Date fecha, Long empresaRut) {
 		Factura factura = new Factura(id, valorTotal, fecha, empresaRut);
 		restClient.crearFactura(factura);
 	}
@@ -43,7 +43,7 @@ public class FacturaController {
 	}
 	
 	@PostMapping("/admin/Facturas/edit")
-	public String editar(int id, int valorTotal, Date fecha, int empresaRut) {
+	public String editar(Long id, Long valorTotal, Date fecha, Long empresaRut) {
 		Factura factura = new Factura(id, valorTotal, fecha, empresaRut);
 		restClient.edit(factura);
 		return "/admin/Facturas/list";

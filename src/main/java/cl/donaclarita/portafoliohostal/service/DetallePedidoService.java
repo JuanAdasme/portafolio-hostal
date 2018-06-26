@@ -80,13 +80,12 @@ public class DetallePedidoService {
 		return DetallePedido;
 	}
 	
-	public boolean edit(DetallePedido DetallePedido) {
+	public boolean edit(DetallePedido detallePedido) {
 		boolean result = false;
-		LOGGER.log(Level.INFO, "DetallePedido: " + DetallePedido.getDetallePedido_RUT(), DetallePedido);
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			HttpEntity<DetallePedido> request = new HttpEntity<DetallePedido>(DetallePedido);
-			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "DetallePedido/" + DetallePedido.getDetallePedido_RUT(), HttpMethod.PUT,
+			HttpEntity<DetallePedido> request = new HttpEntity<DetallePedido>(detallePedido);
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "DetallePedido/" + detallePedido.getDetallE_PEDIDO_ID(), HttpMethod.PUT,
 					request, Boolean.class);
 
 			if (response != null && response.getStatusCode() == HttpStatus.OK) {

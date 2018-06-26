@@ -43,12 +43,12 @@ public class FacturaService {
 		return Facturas;
 	}
 	
-	public boolean crearFactura(Factura Factura) {
+	public boolean crearFactura(Factura factura) {
 
 		boolean result = false;
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			HttpEntity<Factura> request = new HttpEntity<Factura>(Factura);
+			HttpEntity<Factura> request = new HttpEntity<Factura>(factura);
 			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "Facturas", HttpMethod.POST,
 					request, Boolean.class);
 
@@ -80,13 +80,12 @@ public class FacturaService {
 		return Factura;
 	}
 	
-	public boolean edit(Factura Factura) {
+	public boolean edit(Factura factura) {
 		boolean result = false;
-		LOGGER.log(Level.INFO, "Factura: " + Factura.getFactura_RUT(), Factura);
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			HttpEntity<Factura> request = new HttpEntity<Factura>(Factura);
-			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "Facturas/" + Factura.getFactura_RUT(), HttpMethod.PUT,
+			HttpEntity<Factura> request = new HttpEntity<Factura>(factura);
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "Facturas/" + factura.getFacturA_ID(), HttpMethod.PUT,
 					request, Boolean.class);
 
 			if (response != null && response.getStatusCode() == HttpStatus.OK) {

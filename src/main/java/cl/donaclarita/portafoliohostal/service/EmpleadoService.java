@@ -100,7 +100,6 @@ public class EmpleadoService {
 	}
 	
 	public boolean delete(Long rut) {
-
 		boolean result = false;
 		try {
 			RestTemplate restTemplate = new RestTemplate();

@@ -62,4 +62,57 @@ public class UsuarioService {
 
 		return result;
 	}
+	
+	public Usuario getById(String id) {
+		Usuario usuario = null;
+		try {
+			RestTemplate restTemplate = new RestTemplate();
+			ResponseEntity<Usuario> response = restTemplate.exchange(SERVICE_URL + "usuarios/" + id, HttpMethod.GET,
+					null, Usuario.class);
+
+			if (response != null && response.getStatusCode() == HttpStatus.OK) {
+				usuario = response.getBody();
+			}
+
+		} catch (Exception e) {
+			LOGGER.log(Level.WARNING, MSG_SERVICE_ERROR, e);
+		}
+		return usuario;
+	}
+	
+	public boolean edit(Usuario usuario) {
+		boolean result = false;
+		try {
+			RestTemplate restTemplate = new RestTemplate();
+			HttpEntity<Usuario> request = new HttpEntity<Usuario>(usuario);
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "USUARIOs/" + usuario.getUsuariO_NOMBRE_USUARIO(), HttpMethod.PUT,
+					request, Boolean.class);
+
+			if (response != null && response.getStatusCode() == HttpStatus.OK) {
+				result = response.getBody();
+			}
+
+		} catch (Exception e) {
+			LOGGER.log(Level.WARNING, MSG_SERVICE_ERROR, e);
+		}
+		return result;
+	}
+	
+	public boolean delete(String username) {
+		boolean result = false;
+		try {
+			RestTemplate restTemplate = new RestTemplate();
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "USUARIOs/" + username, HttpMethod.DELETE,
+					null, Boolean.class);
+
+			if (response != null && response.getStatusCode() == HttpStatus.OK) {
+				result = response.getBody();
+			}
+
+		} catch (Exception e) {
+			LOGGER.log(Level.WARNING, MSG_SERVICE_ERROR, e);
+		}
+
+		return result;
+	}
 }

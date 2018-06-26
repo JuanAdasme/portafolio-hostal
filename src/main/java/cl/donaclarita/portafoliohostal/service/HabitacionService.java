@@ -43,12 +43,12 @@ public class HabitacionService {
 		return Habitacions;
 	}
 	
-	public boolean crearHabitacion(Habitacion Habitacion) {
+	public boolean crearHabitacion(Habitacion habitacion) {
 
 		boolean result = false;
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			HttpEntity<Habitacion> request = new HttpEntity<Habitacion>(Habitacion);
+			HttpEntity<Habitacion> request = new HttpEntity<Habitacion>(habitacion);
 			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "Habitacions", HttpMethod.POST,
 					request, Boolean.class);
 
@@ -80,13 +80,12 @@ public class HabitacionService {
 		return Habitacion;
 	}
 	
-	public boolean edit(Habitacion Habitacion) {
+	public boolean edit(Habitacion habitacion) {
 		boolean result = false;
-		LOGGER.log(Level.INFO, "Habitacion: " + Habitacion.getHabitacion_RUT(), Habitacion);
 		try {
 			RestTemplate restTemplate = new RestTemplate();
-			HttpEntity<Habitacion> request = new HttpEntity<Habitacion>(Habitacion);
-			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "Habitacions/" + Habitacion.getHabitacion_RUT(), HttpMethod.PUT,
+			HttpEntity<Habitacion> request = new HttpEntity<Habitacion>(habitacion);
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "Habitacions/" + habitacion.getHabitacioN_NRO(), HttpMethod.PUT,
 					request, Boolean.class);
 
 			if (response != null && response.getStatusCode() == HttpStatus.OK) {
