@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Ingreso</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" th:href="@{css/layout.css}">
+	<link href="https://fonts.googleapis.com/css?family=EB+Garamond|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/bootstrap1.min.css}" >
+	<link href="https://fonts.googleapis.com/css?family=EB+Garamond|Roboto" rel="stylesheet">
+</head>
+<body>
+ <header class="mt-3">
+      <div class="row">
+        <div class="col-lg-12">
+            <img src="images/logo_up.png" alt="" class="offset-lg-5 col-lg-1">          
+        </div>          
+      </div>
+      <div class="row mt-3">
+        <div class="col-lg-12 text-center text-primary">
+          <h1 class="border-top border-bottom border-primary col-lg-5 offset-lg-3">Hostal Do&ntilde;a Clarita</h1>
+        </div>            
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <img src="images/logo_down.png" alt="" class="offset-lg-5 col-lg-1"> 
+        </div>
+      </div>
+	
+</header>
+<body>
+	<!-- INGRESO -->
+	<section>
+			<h2>Ingresar</h2>
+		<form action="">
+			<div class="labels">
+				<label for="name_ing" class="label">Nombre:</label>
+				<label for="pass" class="label">Password:</label>
+			</div>
+			<div class="inputs">
+				<input type="text" id="txtNameIng" name="name" class="input">
+				<input type="text" id="txtPass" name="pass" class="input">
+			</div>
+			<div class="buttons">
+				<input type="submit" value="Ingresar">
+				
+			</div>
+			<a href="#">Recuperar contraseña</a>
+		</form>
+	</section>
+	<!-- REGISTRO -->
+	<section>
+			<h2>Registrar</h2>
+		<form action="">
+			<div class="labels">
+				<label for="rut" class="label">Rut:</label>
+				<label for="name_reg" class="label">Nombre:</label>
+				<label for="address" class="label">Direcci&oacute;n:</label>
+				<label for="mail" class="label">Email:</label>
+			</div>
+			<div class="inputs">
+				<input type="text" id="txtRut" name="rut"  class="input">
+				<input type="text" id="txtNameReg" name="name_reg"  class="input">
+				<input type="text" id="txtAddress" name="address"  class="input">
+				<input type="text" id="txtMail" name="mail"  class="input">
+			</div>
+			<div class="buttons">
+				<input type="submit" value="Registrar">
+			</div>
+		</form>
+	</section>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default.html}">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Hostal Doña Clarita</title>
+</head>
+
+<body>
+	<th:block layout:fragment="content">
+		<div class="container">
+			<div class="row col-lg-12">
+				<div class="col-lg-4">
+					<div class="card">
+						<div class="card-header">Estandar</div>
+						<div class="card-body">
+							<section>
+								<h5>Desayuno</h5>
+								<ul>
+									<li>Leche.</li>
+									<li>Pan integral y pan amasado con mantequilla y mermelada
+										o miel.</li>
+									<li>Zumo de fruta.</li>
+								</ul>
+								<h5>Comida</h5>
+								<ul>
+									<li>Ensaladas Mixtas.</li>
+									<li>Lomo de cerdo con pure rustico y guisantes.</li>
+									<li>yogurt con frutas.</li>
+								</ul>
+								<h5>Cena</h5>
+								<ul>
+									<li>Crema de verduras.</li>
+									<li>Risoto de quinoa con champiñones.</li>
+									<li>Leche Asada.</li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="card">
+						<div class="card-header">Superior</div>
+						<div class="card-body">
+							<section>
+								<h5>Desyuno</h5>
+								<ul>
+									<li>Leche.</li>
+									<li>Pan integral, pan amasado,mantequilla,mermelada o miel
+										y huevos revueltos.</li>
+									<li>Zumo de frutas</li>
+								</ul>
+								<h5>Comida</h5>
+								<ul>
+									<li>Crema de verduras.</li>
+									<li>Ñoquis de papas chilotas en salsa alpesto y ricota.</li>
+									<li>Panacota.</li>
+								</ul>
+								<h5>Cena</h5>
+								<ul>
+									<li>crema de garbanzos y pesto</li>
+									<li>Mix de verduras salteadas con tilapia a la
+										mantequilla.</li>
+									<li>frutas del bosque.</li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 mb-5">
+					<div class="card">
+						<div class="card-header">Ejecutivo</div>
+						<div class="card-body">
+							<section>
+								<h5>Desayuno</h5>
+								<ul>
+									<li>Leche y cafe de grano.</li>
+									<li>Pan integral, pan amasado, medias lunas, mantequilla,
+										mermelada o miel, huevos revueltos y pie de naranja.</li>
+									<li>Zumo de frutas.</li>
+								</ul>
+								<h5>Comida</h5>
+								<ul>
+									<li>Empanadas de carne mechada y verduras.</li>
+									<li>Salmon al limon y finas hierbas con salteado de
+										piñones y pure de manzana.</li>
+									<li>Creme brulee y cafe</li>
+								</ul>
+								<h5>Cena</h5>
+								<ul>
+									<li>Sopa thai</li>
+									<li>Hamburguesa de lentejas con ensalada, ensalada de
+										rucula y papas al romero.</li>
+									<li>jalea con frutas y helado.</li>
+								</ul>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.container -->
+
+		<!-- jQuery -->
+		<script th:src="@{js/jquery.js}"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script th:src="@{js/bootstrap.min.js}"></script>
+	</th:block>
+</body>
+
+</html>

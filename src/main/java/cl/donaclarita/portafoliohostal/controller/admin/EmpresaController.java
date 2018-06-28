@@ -1,12 +1,14 @@
 package cl.donaclarita.portafoliohostal.controller.admin;
 
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import cl.donaclarita.portafoliohostal.model.Empleado;
 import cl.donaclarita.portafoliohostal.model.Empresa;
@@ -44,6 +46,12 @@ public class EmpresaController {
 	public String editar(Long rut, String dv, String nombre, String direccion, String email) {
 		Empresa empresa = new Empresa(rut, dv, nombre, direccion, email);
 		restClient.edit(empresa);
+		return "/admin/empresas/list";
+	}
+	
+	@RequestMapping("/admin/empresas/delete")
+	public String delete(Long rut, Model model) {
+		boolean es = restClient.delete(rut);
 		return "/admin/empresas/list";
 	}
 }

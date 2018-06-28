@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default.html}">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Hostal Doña Clarita</title>
+</head>
+
+<body>
+	<th:block layout:fragment="content">
+		<div class="container">
+			<div class="row col-lg-12 mt-5">
+				<section class="col-lg-3 offset-lg-1">
+					<img src="images/dorm1.webp" alt="" class="img-fluid">
+					<p class="pt-3 text-center">Dormitorio Estandar</p>
+					<div class="icons text-center">
+						<i class="fa fa-wifi" data-toggle="tooltip" data-placement="top"
+							title="Wifi"></i> <i class="fa fa-bath" data-toggle="tooltip"
+							data-placement="top" title="Baño personal"></i> <i
+							class="fa fa-utensils" data-toggle="tooltip" data-placement="top"
+							title="Desayuno"></i> <i class="fa fa-bed" data-toggle="tooltip"
+							data-placement="top" title="Cama King"></i>
+					</div>
+					<!-- <div class="text-center mt-3">
+						<a href="#">Ver disponibilidad</a>
+					</div> -->
+				</section>
+				<section class="col-lg-3 offset-lg-1">
+					<img src="images/dorm2.webp" alt="" class="img-fluid">
+					<p class="pt-3 text-center">Dormitorio Superior</p>
+					<div class="icons text-center">
+						<i class="fa fa-wifi" data-toggle="tooltip" data-placement="top"
+							title="Wifi"></i> <i class="fa fa-bath"></i> <i
+							class="fa fa-utensils"></i> <i class="fa fa-unlock"></i> <i
+							class="fa fa-bed"></i>
+					</div>
+					<!-- <div class="text-center mt-3">
+						<a href="#">Ver disponibilidad</a>
+					</div> -->
+				</section>
+				<section class="col-lg-3 offset-lg-1">
+					<img src="images/dorm3.webp" alt="" class="img-fluid">
+					<p class="pt-3 text-center">Dormitorio Ejecutivo</p>
+					<div class="icons text-center">
+						<i class="fa fa-wifi" data-toggle="tooltip" data-placement="top"
+							title="Wifi"></i> <i class="fa fa-bath"></i> <i
+							class="fa fa-utensils"></i> <i class="fa fa-unlock"></i> <i
+							class="fa fa-bed"></i>
+					</div>
+					<!-- <div class="text-center mt-3">
+						<a href="#">Ver disponibilidad</a>
+					</div> -->
+				</section>
+			</div>
+		<!-- /.container -->
+
+		<!-- jQuery -->
+		<script th:src="@{js/jquery.js}"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script th:src="@{js/bootstrap.min.js}"></script>
+	</th:block>
+</body>
+
+</html>

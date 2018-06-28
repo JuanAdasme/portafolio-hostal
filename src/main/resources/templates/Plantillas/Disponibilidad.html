@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contacto</title>
+	<link rel="stylesheet" href="css/layout.css">
+	<link href="https://fonts.googleapis.com/css?family=EB+Garamond|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+</head>
+<body>
+ <header class="mb-4 mt-3">
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="images/logo_up.png" alt="" class="offset-lg-5 col-lg-1">          
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-12 text-center text-primary">
+            <h1 class="border-top border-bottom border-primary col-lg-5 offset-lg-3">Hostal Do&ntilde;a Clarita</h1>
+        </div>            
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <img src="images/logo_down.png" alt="" class="offset-lg-5 col-lg-1"> 
+        </div>
+    </div>
+  </header>
+  <div class="row">
+    <div class="col-lg-12"> 
+        <form action="" class="col-lg-6 offset-lg-3 border p-4 border-dark">
+          <fieldset>
+            <legend>Consulta</legend>
+            <label for="start_date">Fecha Ingreso</label>
+            <input type="text" placeholder="dd/mm/yyyy" id="start_date" name="start_date">
+            <label for="end_date">Fecha Salida</label>
+            <input type="text" placeholder="dd/mm/yyyy" id="end_date" name="end_date">
+            <input type="submit" value="Consultar" class="button btn-primary">
+          </fieldset>
+        </form>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-lg-12"> 
+        <form action="" class="col-lg-6 offset-lg-3 border p-4 border-dark">
+          <fieldset>
+          <legend>Consulta</legend>
+            <div class="row mt-2"> 
+                <label for="bedroom">Dormitorio</label>
+                <select name="" id="">
+                    <option value="0">Seleccione</option>
+                    <option value="1">Estandar</option>
+                    <option value="2">Superior</option>
+                    <option value="3">Ejecutivo</option>
+                </select>
+            </div>
+            <div class="row mt-3"> 
+                <label for="value">Precio</label>
+                <input type="range" class="form-control-range col-lg-4 offset-lg-1" id="formControlRange">
+            </div>
+            
+            
+            
+            <input type="submit" value="Reservar" class="button btn-primary">
+          </fieldset>
+        </form>
+    </div>
+</body>
+</html>

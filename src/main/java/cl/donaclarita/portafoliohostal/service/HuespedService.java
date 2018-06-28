@@ -43,6 +43,29 @@ public class HuespedService {
 		return huespedes;
 	}
 	
+	public List<Huesped> findByEmpresa(Long rutEmpresa) {
+		List<Huesped> huespedes = new ArrayList<Huesped>();
+		
+		try {
+			RestTemplate restTemplate = new RestTemplate();
+			ResponseEntity<Huesped[]> response = restTemplate.exchange(SERVICE_URL + "HUESPEDs",
+					HttpMethod.GET, null, Huesped[].class);	
+
+			if (response != null && response.getStatusCode() == HttpStatus.OK) {
+				LOGGER.log(Level.INFO, response.getBody()[0].toString());
+				huespedes.addAll(Arrays.asList(response.getBody()));
+			}
+			else {
+				LOGGER.log(Level.INFO, "Response null or Status not OK");
+			}
+
+		} catch (Exception e) {
+			LOGGER.log(Level.WARNING, MSG_SERVICE_ERROR, e);
+		}
+		
+		return huespedes;
+	}
+	
 	public Huesped crearHuesped(Huesped huesped) {
 
 		Huesped result = null;

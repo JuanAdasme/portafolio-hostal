@@ -97,4 +97,22 @@ public class EmpresaService {
 		}
 		return result;
 	}
+	
+	public boolean delete(Long rut) {
+		boolean result = false;
+		try {
+			RestTemplate restTemplate = new RestTemplate();
+			ResponseEntity<Boolean> response = restTemplate.exchange(SERVICE_URL + "EMPRESAs/" + rut, HttpMethod.DELETE,
+					null, Boolean.class);
+
+			if (response != null && response.getStatusCode() == HttpStatus.OK) {
+				result = response.getBody();
+			}
+
+		} catch (Exception e) {
+			LOGGER.log(Level.WARNING, MSG_SERVICE_ERROR, e);
+		}
+
+		return result;
+	}
 }

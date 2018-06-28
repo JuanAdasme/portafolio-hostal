@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/admin.html}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Hostal Doña Clarita</title>
+</head>
+<body>
+	<th:block layout:fragment="content">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"> <em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Proveedores</li>
+			</ol>
+		</div>
+		<!--/.row-->
+
+		<div class="row">
+			<h2>Editar Proveedor</h2>
+		</div>
+		<div class="row">
+			<div class="panel panel-default">
+				<div class="panel-heading">Forms</div>
+				<div class="panel-body">
+					<div class="col-md-6">
+						<form role="form" method="POST" th:href="@{/admin/proveedores/edit}">
+							<div class="form-group">
+								<label>Nombre: </label> <input class="form-control"
+									name="nombre" placeholder="Nombre" th:value="${proveedor.proveedoR_NOMBRE}" required>
+							</div>
+							<div class="form-group">
+								<label>Teléfono: </label> <input type="number" name="telefono"
+									class="form-control" placeholder="999999999" th:value="${proveedor.proveedoR_TELEFONO}" required>
+							</div>
+							<div class="form-group">
+								<label>Email: </label> <input type="email" name="email"
+									class="form-control" placeholder="mail@ejemplo.cl" th:value="${proveedor.proveedoR_EMAIL}" required>
+							</div>
+							<div class="form-group">
+								<label>Rubro: </label> <input type="number" name="rubro"
+									class="form-control" placeholder="Apellido" th:value="${proveedor.rubrO_ID}" required readonly>
+							</div>
+							<button type="submit" class="btn btn-primary">Guardar</button>
+							<button type="reset" class="btn btn-default">Restablecer</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+</body>
+</html>

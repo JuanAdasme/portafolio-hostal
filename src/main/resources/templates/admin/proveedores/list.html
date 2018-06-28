@@ -20,10 +20,12 @@
 		<!--/.row-->
 		<div class="container">
 			<div class="row" th:if="${success}">
-				<p th:text="${success}" class="alert-success"></p>>
+				<p th:text="${success}" class="alert-success"></p>
+				>
 			</div>
 			<div class="row" th:if="${error}">
-				<p th:text="${error}" class="alert-danger"></p>>
+				<p th:text="${error}" class="alert-danger"></p>
+				>
 			</div>
 			<div class="row">
 				<div>
@@ -37,7 +39,7 @@
 					<div class="table-responsive">
 						<table id="mytable" class="table table-bordred table-striped">
 							<thead>
-								<th>NOMNRE</th>
+								<th>NOMBRE</th>
 								<th>TELÉFONO</th>
 								<th>EMAIL</th>
 								<th>RUBRO ID</th>
@@ -52,17 +54,20 @@
 											title="Edit">
 											<button class="btn btn-primary btn-xs" data-title="Edit"
 												data-toggle="modal" data-target=""
-												th:onclick="'javascript:editRedirect(' + ${pro.proveedoR_NOMBRE} + ');'">
+												th:onclick="'javascript:editRedirect('+ '\'' + ${pro.proveedoR_ID} + '\'' + ');'">
 												<span class="glyphicon glyphicon-pencil"></span>
 											</button>
 										</p></td>
 									<td><p data-placement="top" data-toggle="tooltip"
 											title="Delete">
 										<form method="post" th:action="@{/admin/proveedores/delete}"
-											id="delete"></form>
+											th:id="${'delete' + pro.proveedoR_ID}">
+											<input name="id" type="text" style="display: none;"
+												th:value="${pro.proveedoR_ID}">
+										</form>
 										<button class="btn btn-danger btn-xs" data-title="Delete"
 											data-toggle="modal" data-target=""
-											th:onclick="'javascript:redirectDelete(' + ${pro.proveedoR_NOMBRE} + ');'">
+											th:onclick="'javascript:deleteRedirect(' + ${pro.proveedoR_ID} + ');'">
 											<span class="glyphicon glyphicon-trash"></span>
 										</button>
 										</p></td>
@@ -81,6 +86,10 @@
 			}
 			function editRedirect(id) {
 				location.href = '/admin/proveedores/edit?id=' + id;
+			}
+			function deleteRedirect(id) {
+				id = "#delete" + id;
+				$(id).submit();
 			}
 		</script>
 	</th:block>

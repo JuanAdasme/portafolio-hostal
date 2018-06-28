@@ -1,14 +1,15 @@
 package cl.donaclarita.portafoliohostal.controller.admin;
 
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import cl.donaclarita.portafoliohostal.model.Empleado;
 import cl.donaclarita.portafoliohostal.model.Usuario;
 import cl.donaclarita.portafoliohostal.service.UsuarioService;
 
@@ -51,8 +52,9 @@ public class UsuarioController {
 		return "/admin/usuarios/list";
 	}
 
-	
+	@RequestMapping("/admin/usuarios/delete")
 	public String delete(String username, Model model) {
+		LOGGER.log(Level.WARNING, "Eliminar usuario: " + username, username);
 		boolean es = restClient.delete(username);
 		return "/admin/usuarios/list";
 	}

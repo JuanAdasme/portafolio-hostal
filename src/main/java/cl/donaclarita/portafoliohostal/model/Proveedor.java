@@ -12,7 +12,7 @@ import lombok.ToString;
 public class Proveedor {
 	private Long proveedoR_ID;
 	private String proveedoR_NOMBRE;
-	private int proveedoR_TELEFONO;
+	private Long proveedoR_TELEFONO;
 	private String proveedoR_EMAIL;
 	private Long rubrO_ID;
 }
